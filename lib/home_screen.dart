@@ -51,74 +51,313 @@ class HomeScreen extends StatelessWidget
           ),
         ],
       ),
-      body: Container(
-        color: Colors.white,
-        width: double.infinity,
+      body: SingleChildScrollView(
         child: Column(
-          //crossAxisAlignment: CrossAxisAlignment.end,
-          //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //mainAxisSize: MainAxisSize.min,
           children:
           [
-            Container(
-              width: double.infinity,
-              color: Colors.amber,
-              child: Text(
-                'Hello World',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.red,
-                ),
+            Padding(
+              padding: EdgeInsets.all(20.0,),
+              child: Column(
+                children:
+                [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:
+                    [
+                      Image(
+                        image: NetworkImage('https://themes.tielabs.com/sahifa/wp-content/uploads/sites/3/2015/01/9FybtVFNSEOxogGzIvHJ_IMG_2226.jpg'),
+                        height: 100.0,
+                        width: 120.0,
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Still, she’s got a lot of spirit. I don’t know, what do you think? What!? I don’t know what you’re talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan– What good is a reward if you ain’t around to use it? Besides, attacking that battle station ain’t my idea of courage. It’s more like…suicide.',
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children:
+                    [
+                      Text(
+                        'TRAVEL',
+                      ),
+                      Spacer(),
+                      IconButton(
+                        icon: Icon(
+                          Icons.bookmark_border,
+                          size: 16.0,
+                        ),
+                        onPressed: ()
+                        {
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.share,
+                          size: 16.0,
+                        ),
+                        onPressed: ()
+                        {
+                        },
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              color: Colors.deepOrange,
-              child: Text(
-                'Hello World',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
+            Padding(
+              padding: EdgeInsets.all(20.0,),
+              child: Column(
+                children:
+                [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:
+                    [
+                      Image(
+                        image: NetworkImage('https://themes.tielabs.com/sahifa/wp-content/uploads/sites/3/2015/01/9FybtVFNSEOxogGzIvHJ_IMG_2226.jpg'),
+                        height: 100.0,
+                        width: 120.0,
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Still, she’s got a lot of spirit. I don’t know, what do you think? What!? I don’t know what you’re talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan– What good is a reward if you ain’t around to use it? Besides, attacking that battle station ain’t my idea of courage. It’s more like…suicide.',
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children:
+                    [
+                      Text(
+                        'TRAVEL',
+                      ),
+                      Spacer(),
+                      IconButton(
+                        icon: Icon(
+                          Icons.bookmark_border,
+                          size: 16.0,
+                        ),
+                        onPressed: ()
+                        {
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.share,
+                          size: 16.0,
+                        ),
+                        onPressed: ()
+                        {
+                        },
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              color: Colors.teal,
-              child: Text(
-                'Hello World',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.red,
-                ),
+            Padding(
+              padding: EdgeInsets.all(20.0,),
+              child: Column(
+                children:
+                [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:
+                    [
+                      Image(
+                        image: NetworkImage('https://themes.tielabs.com/sahifa/wp-content/uploads/sites/3/2015/01/9FybtVFNSEOxogGzIvHJ_IMG_2226.jpg'),
+                        height: 100.0,
+                        width: 120.0,
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Still, she’s got a lot of spirit. I don’t know, what do you think? What!? I don’t know what you’re talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan– What good is a reward if you ain’t around to use it? Besides, attacking that battle station ain’t my idea of courage. It’s more like…suicide.',
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children:
+                    [
+                      Text(
+                        'TRAVEL',
+                      ),
+                      Spacer(),
+                      IconButton(
+                        icon: Icon(
+                          Icons.bookmark_border,
+                          size: 16.0,
+                        ),
+                        onPressed: ()
+                        {
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.share,
+                          size: 16.0,
+                        ),
+                        onPressed: ()
+                        {
+                        },
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            Spacer(),
-            Container(
-              width: double.infinity,
-              color: Colors.amber,
-              child: Text(
-                'Hello World',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.red,
-                ),
+            Padding(
+              padding: EdgeInsets.all(20.0,),
+              child: Column(
+                children:
+                [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:
+                    [
+                      Image(
+                        image: NetworkImage('https://themes.tielabs.com/sahifa/wp-content/uploads/sites/3/2015/01/9FybtVFNSEOxogGzIvHJ_IMG_2226.jpg'),
+                        height: 100.0,
+                        width: 120.0,
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Still, she’s got a lot of spirit. I don’t know, what do you think? What!? I don’t know what you’re talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan– What good is a reward if you ain’t around to use it? Besides, attacking that battle station ain’t my idea of courage. It’s more like…suicide.',
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children:
+                    [
+                      Text(
+                        'TRAVEL',
+                      ),
+                      Spacer(),
+                      IconButton(
+                        icon: Icon(
+                          Icons.bookmark_border,
+                          size: 16.0,
+                        ),
+                        onPressed: ()
+                        {
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.share,
+                          size: 16.0,
+                        ),
+                        onPressed: ()
+                        {
+                        },
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              color: Colors.deepOrange,
-              child: Text(
-                'Hello World',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
+            Padding(
+              padding: EdgeInsets.all(20.0,),
+              child: Column(
+                children:
+                [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:
+                    [
+                      Image(
+                        image: NetworkImage('https://themes.tielabs.com/sahifa/wp-content/uploads/sites/3/2015/01/9FybtVFNSEOxogGzIvHJ_IMG_2226.jpg'),
+                        height: 100.0,
+                        width: 120.0,
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Still, she’s got a lot of spirit. I don’t know, what do you think? What!? I don’t know what you’re talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan– What good is a reward if you ain’t around to use it? Besides, attacking that battle station ain’t my idea of courage. It’s more like…suicide.',
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children:
+                    [
+                      Text(
+                        'TRAVEL',
+                      ),
+                      Spacer(),
+                      IconButton(
+                        icon: Icon(
+                          Icons.bookmark_border,
+                          size: 16.0,
+                        ),
+                        onPressed: ()
+                        {
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.share,
+                          size: 16.0,
+                        ),
+                        onPressed: ()
+                        {
+                        },
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],
