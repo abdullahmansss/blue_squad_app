@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget
 {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
@@ -32,7 +33,8 @@ class HomeScreen extends StatelessWidget
             'Blue Squad App',
           ),
         ),
-        actions: [
+        actions:
+        [
           IconButton(
             icon: Icon(
               Icons.search,
@@ -45,7 +47,8 @@ class HomeScreen extends StatelessWidget
             icon: Icon(
               Icons.more_vert,
             ),
-            onPressed: () {
+            onPressed: ()
+            {
               print('search clicked');
             },
           ),
