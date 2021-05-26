@@ -1,21 +1,19 @@
+import 'package:blue_squad_app/result.dart';
 import 'package:flutter/material.dart';
 
-class BMIScreen extends StatefulWidget
-{
+class BMIScreen extends StatefulWidget {
   @override
   BMIScreenState createState() => BMIScreenState();
 }
 
-class BMIScreenState extends State<BMIScreen>
-{
+class BMIScreenState extends State<BMIScreen> {
   bool isMale = true;
   int age = 24;
   int weight = 60;
   int height = 140;
 
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -23,8 +21,7 @@ class BMIScreenState extends State<BMIScreen>
         ),
       ),
       body: Column(
-        children:
-        [
+        children: [
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -32,13 +29,10 @@ class BMIScreenState extends State<BMIScreen>
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      onTap: ()
-                      {
+                      onTap: () {
                         isMale = true;
 
-                        setState(() {
-
-                        });
+                        setState(() {});
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -77,13 +71,10 @@ class BMIScreenState extends State<BMIScreen>
                   ),
                   Expanded(
                     child: GestureDetector(
-                      onTap: ()
-                      {
+                      onTap: () {
                         isMale = false;
 
-                        setState(() {
-
-                        });
+                        setState(() {});
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -171,13 +162,10 @@ class BMIScreenState extends State<BMIScreen>
                       value: height.toDouble(),
                       min: 100,
                       max: 220,
-                      onChanged: (newValue)
-                      {
+                      onChanged: (newValue) {
                         height = newValue.toInt();
 
-                        setState(() {
-
-                        });
+                        setState(() {});
                       },
                     ),
                   ],
@@ -220,8 +208,7 @@ class BMIScreenState extends State<BMIScreen>
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children:
-                            [
+                            children: [
                               IconButton(
                                 icon: CircleAvatar(
                                   radius: 20.0,
@@ -229,12 +216,9 @@ class BMIScreenState extends State<BMIScreen>
                                     Icons.add,
                                   ),
                                 ),
-                                onPressed: ()
-                                {
+                                onPressed: () {
                                   age++;
-                                  setState(() {
-
-                                  });
+                                  setState(() {});
                                 },
                               ),
                               SizedBox(
@@ -247,12 +231,9 @@ class BMIScreenState extends State<BMIScreen>
                                     Icons.remove,
                                   ),
                                 ),
-                                onPressed: ()
-                                {
+                                onPressed: () {
                                   age--;
-                                  setState(() {
-
-                                  });
+                                  setState(() {});
                                 },
                               ),
                             ],
@@ -294,8 +275,7 @@ class BMIScreenState extends State<BMIScreen>
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children:
-                            [
+                            children: [
                               IconButton(
                                 icon: CircleAvatar(
                                   radius: 20.0,
@@ -303,12 +283,9 @@ class BMIScreenState extends State<BMIScreen>
                                     Icons.add,
                                   ),
                                 ),
-                                onPressed: ()
-                                {
+                                onPressed: () {
                                   weight++;
-                                  setState(() {
-
-                                  });
+                                  setState(() {});
                                 },
                               ),
                               SizedBox(
@@ -321,12 +298,9 @@ class BMIScreenState extends State<BMIScreen>
                                     Icons.remove,
                                   ),
                                 ),
-                                onPressed: ()
-                                {
+                                onPressed: () {
                                   weight--;
-                                  setState(() {
-
-                                  });
+                                  setState(() {});
                                 },
                               ),
                             ],
@@ -344,12 +318,23 @@ class BMIScreenState extends State<BMIScreen>
             color: Colors.blue,
             height: 50.0,
             child: MaterialButton(
-              onPressed: ()
-              {
+              onPressed: () {
                 print(isMale);
                 print(height);
                 print(age);
                 print(weight);
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => ResultScreen(
+                        height: this.height,
+                        age: this.age,
+                        isMale: this.isMale,
+                        weight: this.weight,
+                      ),
+                  ),
+                );
               },
               child: Text(
                 'Calculate',
