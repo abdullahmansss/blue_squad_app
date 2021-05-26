@@ -1,5 +1,6 @@
 import 'package:blue_squad_app/bmi_screen.dart';
 import 'package:blue_squad_app/home_screen.dart';
+import 'package:blue_squad_app/todo_app/todo_layout.dart';
 import 'package:flutter/material.dart';
 
 void main()
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget
   {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BMIScreen(),
+      home: TodoLayout(),
     );
   }
 }
