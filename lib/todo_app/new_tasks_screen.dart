@@ -42,9 +42,10 @@ class NewTasksScreen extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) => buildTaskItem(tasks[index]),
-              separatorBuilder: (context, index) => Divider(
+              separatorBuilder: (context, index) => Container(
+                width: double.infinity,
+                height: 1.0,
                 color: Colors.grey[300],
-                thickness: 1.0,
               ),
               itemCount: tasks.length,
             ),
@@ -52,19 +53,20 @@ class NewTasksScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // String name = '';
-          //
-          // try
-          // {
-          //   name = await getName();
-          //   print(name);
-          //   throw('Abdullah Error');
-          // }
-          // catch(error)
-          // {
-          //   print(error.toString());
-          // }
+        onPressed: () async
+        {
+          String name = '';
+
+          try
+          {
+            name = await getName();
+            print(name);
+            throw('Abdullah Error');
+          }
+          catch(error)
+          {
+            print(error.toString());
+          }
 
           getName().then((value) {
             //throw('Abdullah Error');
