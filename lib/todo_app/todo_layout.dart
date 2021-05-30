@@ -40,9 +40,11 @@ class _TodoLayoutState extends State<TodoLayout>
         onTap: (int index)
         {
           currentIndex = index;
+
           setState(() {
 
           });
+
           print(index);
         },
         type: BottomNavigationBarType.fixed,
