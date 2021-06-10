@@ -12,8 +12,10 @@ class TaskModel {
   });
 }
 
-class NewTasksScreen extends StatelessWidget {
-  List<TaskModel> tasks = [
+class NewTasksScreen extends StatelessWidget
+{
+  List<TaskModel> tasks =
+  [
     TaskModel(
       title: 'Task 1',
       time: '12:00 pm',
@@ -27,7 +29,8 @@ class NewTasksScreen extends StatelessWidget {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
-          children: [
+          children:
+          [
             ListView.separated(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
@@ -52,30 +55,27 @@ class NewTasksScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async
-        {
-          String name = '';
-
-          try
-          {
-            name = await getName();
-            print(name);
-            throw('Abdullah Error');
-          }
-          catch(error)
-          {
-            print(error.toString());
-          }
-
-          getName().then((value) {
-            //throw('Abdullah Error');
-            print(value);
-          }).catchError((error) {
-            print(error.toString());
-          });
-        },
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () async {
+      //     try
+      //     {
+      //       String name = await getName();
+      //       print(name);
+      //       throw('Abdullah Error');
+      //     }
+      //     catch(error)
+      //     {
+      //       print(error.toString());
+      //     }
+      //
+      //     getName().then((value) {
+      //       //throw('Abdullah Error');
+      //       print(value);
+      //     }).catchError((error) {
+      //       print(error.toString());
+      //     });
+      //   },
+      // ),
     );
   }
 

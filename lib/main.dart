@@ -1,4 +1,5 @@
 import 'package:blue_squad_app/bmi_screen.dart';
+import 'package:blue_squad_app/counter/counter_screen.dart';
 import 'package:blue_squad_app/home_screen.dart';
 import 'package:blue_squad_app/todo_app/todo_layout.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget
   {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TodoLayout(),
+      home: CounterScreenScreen(),
     );
   }
 }
