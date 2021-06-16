@@ -14,7 +14,7 @@ class ArchivedTasksScreen extends StatelessWidget
       {
         return ListView.separated(
           physics: BouncingScrollPhysics(),
-          itemBuilder: (context, index) => buildTaskItem(TodoCubit.get(context).archivedTasks[index]),
+          itemBuilder: (context, index) => buildTaskItem(TodoCubit.get(context).archivedTasks[index], context),
           separatorBuilder: (context, index) => Divider(
             color: Colors.grey[300],
             thickness: 1.0,
@@ -25,14 +25,14 @@ class ArchivedTasksScreen extends StatelessWidget
     );
   }
 
-  Widget buildTaskItem(task) => Padding(
+  Widget buildTaskItem(task, context) => Padding(
     padding: const EdgeInsets.all(16.0),
     child: Row(
       children: [
         CircleAvatar(
           radius: 40.0,
           child: Text(
-            task['id'].toString(),
+            task['time'].toString(),
           ),
         ),
         SizedBox(
@@ -57,17 +57,27 @@ class ArchivedTasksScreen extends StatelessWidget
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            TodoCubit.get(context).updateTask(
+              id: task['id'],
+              status: 'done',
+            );
+          },
           icon: Icon(
             Icons.check_box,
           ),
         ),
-        IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.archive,
-          ),
-        ),
+        // IconButton(
+        //   onPressed: () {
+        //     TodoCubit.get(context).updateTask(
+        //       id: task['id'],
+        //       status: 'archived',
+        //     );
+        //   },
+        //   icon: Icon(
+        //     Icons.archive,
+        //   ),
+        // ),
       ],
     ),
   );

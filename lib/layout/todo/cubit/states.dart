@@ -13,3 +13,5 @@ class TodoUpdateTaskState extends TodoStates {}
 class TodoInsertTaskState extends TodoStates {}
 
 class TodoDeleteTaskState extends TodoStates {}
+
+class TodoBottomSheetState extends TodoStates {}

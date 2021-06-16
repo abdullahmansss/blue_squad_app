@@ -62,12 +62,19 @@ class TodoCubit extends Cubit<TodoStates>
     });
   }
 
-  void insertTask()
+  void insertTask({
+  @required String title,
+  @required String time,
+  @required String date,
+})
   {
     database.transaction((txn) async
     {
-      int id = await txn.rawInsert('INSERT INTO tasks(title, time, date, status) VALUES("Go to gym", "12:00 pm", "21 April, 2021", "new")');
-      print(id);
+      txn.rawInsert('INSERT INTO tasks(title, time, date, status) VALUES("$title", "$time", "$date", "new")').then((value)
+      {
+        emit(TodoInsertTaskState());
+        getTasks();
+      });
     });
   }
 
@@ -77,6 +84,10 @@ class TodoCubit extends Cubit<TodoStates>
 
   void getTasks()
   {
+    newTasks = [];
+    doneTasks = [];
+    archivedTasks = [];
+
     database.rawQuery('SELECT * FROM tasks').then((value)
     {
       value.forEach((element)
@@ -93,15 +104,18 @@ class TodoCubit extends Cubit<TodoStates>
     });
   }
 
-  void updateTask()
+  void updateTask({
+  @required String status,
+  @required int id,
+})
   {
     database.rawUpdate(
-      'UPDATE tasks SET title = ?, status = ? WHERE id = ?',
-      ['Have launch', 'archived', 3],
+      'UPDATE tasks SET status = ? WHERE id = ?',
+      ['$status', id],
     ).then((value)
     {
-      print(value);
       emit(TodoUpdateTaskState());
+      getTasks();
     });
   }
 
@@ -117,5 +131,13 @@ class TodoCubit extends Cubit<TodoStates>
     doneTasks = [];
 
     emit(TodoDeleteTaskState());
+  }
+
+  bool isBottomShown = false;
+
+  void changeBottomVisibility(bool visibility)
+  {
+    isBottomShown = visibility;
+    emit(TodoBottomSheetState());
   }
 }
