@@ -74,7 +74,7 @@ class DoneTasksScreen extends StatelessWidget
         // ),
         IconButton(
           onPressed: () {
-            TodoCubit.get(context).updateTask(
+            TodoCubit.get(context).updateTaskStatus(
               id: task['id'],
               status: 'archived',
             );

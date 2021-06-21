@@ -104,7 +104,7 @@ class TodoCubit extends Cubit<TodoStates>
     });
   }
 
-  void updateTask({
+  void updateTaskStatus({
   @required String status,
   @required int id,
 })
@@ -114,15 +114,39 @@ class TodoCubit extends Cubit<TodoStates>
       ['$status', id],
     ).then((value)
     {
+      emit(TodoUpdateTaskStatusState());
+      getTasks();
+    });
+  }
+
+  //https://impressgaming.com/wp-json/api/categories
+
+  // 1. base url : https://impressgaming.com/
+  // 2. end point : wp-json/api/categories
+  // 3. method : GET
+
+  void updateTask({
+    @required int id,
+    @required String title,
+    @required String time,
+    @required String date,
+  })
+  {
+    database.rawUpdate(
+      'UPDATE tasks SET title = ?, time = ?, date = ? WHERE id = ?',
+      ['$title', '$time', '$date', id],
+    ).then((value)
+    {
       emit(TodoUpdateTaskState());
       getTasks();
     });
   }
 
-  void deleteTask()
+  void deleteTask(int id)
   {
-    database.rawDelete('DELETE FROM tasks WHERE id = ?', [3]).then((value) {
-      print(value);
+    database.rawDelete('DELETE FROM tasks WHERE id = ?', [id]).then((value)
+    {
+      getTasks();
     });
   }
 
@@ -139,5 +163,12 @@ class TodoCubit extends Cubit<TodoStates>
   {
     isBottomShown = visibility;
     emit(TodoBottomSheetState());
+  }
+
+  void openBottomSheetUpdate(Map<String, dynamic> task)
+  {
+    emit(TodoBottomSheetUpdateState(
+      task: task,
+    ));
   }
 }
