@@ -97,9 +97,12 @@ class TodoLayout extends StatelessWidget {
       TodoCubit.get(context).changeBottomVisibility(false);
     } else
       {
-        titleController..text = task['title'];
-        timeController..text = task['time'];
-        dateController..text = task['date'];
+        if(task != null)
+        {
+          titleController..text = task['title'];
+          timeController..text = task['time'];
+          dateController..text = task['date'];
+        }
 
       scaffoldKey.currentState
           .showBottomSheet(

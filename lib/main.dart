@@ -1,13 +1,16 @@
 import 'package:blue_squad_app/counter/cubit/cubit.dart';
 import 'package:blue_squad_app/layout/todo/cubit/cubit.dart';
-import 'package:blue_squad_app/layout/todo/todo_layout.dart';
+import 'package:blue_squad_app/modules/shop/login/login_screen.dart';
 import 'package:blue_squad_app/shared/bloc_observer.dart';
+import 'package:blue_squad_app/shared/network/remote/dio_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main()
 {
   Bloc.observer = MyBlocObserver();
+
+  DioHelper.init();
 
   runApp(MyApp());
 }
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: TodoLayout(),
+        home: LoginScreen(),
       ),
     );
   }
