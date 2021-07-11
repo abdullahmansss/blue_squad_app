@@ -7,9 +7,9 @@ class DefaultButton extends StatelessWidget {
   bool isUpper;
 
   DefaultButton({
-    @required this.function,
+    required this.function,
     this.width = double.infinity,
-    @required this.text,
+    required this.text,
     this.isUpper = true,
   });
 
@@ -20,7 +20,9 @@ class DefaultButton extends StatelessWidget {
       height: 40.0,
       child: MaterialButton(
         color: Colors.blue,
-        onPressed: function,
+        onPressed: (){
+          function();
+        },
         child: Text(
           isUpper ? text.toUpperCase() : text,
           style: TextStyle(

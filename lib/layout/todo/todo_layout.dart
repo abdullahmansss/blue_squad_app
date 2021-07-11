@@ -104,7 +104,7 @@ class TodoLayout extends StatelessWidget {
           dateController..text = task['date'];
         }
 
-      scaffoldKey.currentState
+      scaffoldKey.currentState!
           .showBottomSheet(
             (context) => Container(
               color: Colors.white,
@@ -132,8 +132,8 @@ class TodoLayout extends StatelessWidget {
                           //   Icons.phone,
                           // ),
                         ),
-                        validator: (String text) {
-                          if (text.isEmpty) return 'title can not be empty';
+                        validator: (String? text) {
+                          if (text == null) return 'title can not be empty';
 
                           return null;
                         },
@@ -163,8 +163,8 @@ class TodoLayout extends StatelessWidget {
                           //   Icons.phone,
                           // ),
                         ),
-                        validator: (String text) {
-                          if (text.isEmpty) return 'time can not be empty';
+                        validator: (String? text) {
+                          if (text == null) return 'time can not be empty';
 
                           return null;
                         },
@@ -180,7 +180,7 @@ class TodoLayout extends StatelessWidget {
                             initialTime: TimeOfDay.now(),
                           ).then((value) {
                             timeController.text =
-                                value.format(context).toString();
+                                value!.format(context).toString();
                           });
                         },
                         //enabled: false,
@@ -203,8 +203,8 @@ class TodoLayout extends StatelessWidget {
                           //   Icons.phone,
                           // ),
                         ),
-                        validator: (String text) {
-                          if (text.isEmpty) return 'date can not be empty';
+                        validator: (String? text) {
+                          if (text!.isEmpty) return 'date can not be empty';
 
                           return null;
                         },
@@ -222,7 +222,7 @@ class TodoLayout extends StatelessWidget {
                             lastDate: DateTime.parse('2021-07-02'),
                           ).then((value) {
                             dateController.text =
-                                DateFormat.yMMMd().format(value);
+                                DateFormat.yMMMd().format(value!);
                           });
                         },
                         //enabled: false,
@@ -236,7 +236,7 @@ class TodoLayout extends StatelessWidget {
                         color: Colors.blue,
                         child: MaterialButton(
                           onPressed: () {
-                            if (formKey.currentState.validate())
+                            if (formKey.currentState!.validate())
                             {
                               if(task != null)
                               {

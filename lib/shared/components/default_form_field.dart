@@ -7,10 +7,10 @@ class DefaultFormField extends StatelessWidget {
   IconData prefix;
 
   DefaultFormField({
-    @required this.controller,
-    @required this.type,
-    @required this.label,
-    @required this.prefix,
+    required this.controller,
+    required this.type,
+    required this.label,
+    required this.prefix,
 });
 
   @override

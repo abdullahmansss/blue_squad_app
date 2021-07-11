@@ -1,8 +1,8 @@
 class ShopUserModel
 {
-  bool status;
-  String message;
-  ShopUserDetails data;
+  late bool status;
+  late String message;
+  ShopUserDetails? data;
 
   ShopUserModel.fromMap(Map<String, dynamic> json)
   {
@@ -14,12 +14,12 @@ class ShopUserModel
 
 class ShopUserDetails
 {
-  int id;
-  String name;
-  String email;
-  String phone;
-  String image;
-  String token;
+  late int id;
+  late String name;
+  late String email;
+  late String phone;
+  late String image;
+  late String token;
 
   ShopUserDetails.fromMap(Map<String, dynamic> json)
   {

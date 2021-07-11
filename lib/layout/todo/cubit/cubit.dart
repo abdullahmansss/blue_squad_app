@@ -34,7 +34,7 @@ class TodoCubit extends Cubit<TodoStates>
     emit(TodoChangeBottomBarState());
   }
 
-  Database database;
+  late Database database;
 
   void openOurDatabase()
   {
@@ -63,9 +63,9 @@ class TodoCubit extends Cubit<TodoStates>
   }
 
   void insertTask({
-  @required String title,
-  @required String time,
-  @required String date,
+  required String title,
+  required String time,
+  required String date,
 })
   {
     database.transaction((txn) async
@@ -105,8 +105,8 @@ class TodoCubit extends Cubit<TodoStates>
   }
 
   void updateTaskStatus({
-  @required String status,
-  @required int id,
+  required String status,
+  required int id,
 })
   {
     database.rawUpdate(
@@ -126,10 +126,10 @@ class TodoCubit extends Cubit<TodoStates>
   // 3. method : GET
 
   void updateTask({
-    @required int id,
-    @required String title,
-    @required String time,
-    @required String date,
+    required int id,
+    required String title,
+    required String time,
+    required String date,
   })
   {
     database.rawUpdate(

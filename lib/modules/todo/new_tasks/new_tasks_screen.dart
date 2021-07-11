@@ -9,9 +9,9 @@ class TaskModel {
   String date;
 
   TaskModel({
-    this.title,
-    this.time,
-    this.date,
+    required this.title,
+    required this.time,
+    required this.date,
   });
 }
 
