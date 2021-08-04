@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => ShopCubit()..getHomeData()..getCategoriesData()..getFavoritesData(),
         ),
         BlocProvider(
-          create: (BuildContext context) => SocialCubit()..getUserDataRealTime(),
+          create: (BuildContext context) => SocialCubit()..getUserDataRealTime()..getUsers(),
         ),
       ],
       child: MaterialApp(

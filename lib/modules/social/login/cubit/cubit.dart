@@ -1,6 +1,7 @@
 import 'package:blue_squad_app/models/shop/shop_user_model.dart';
 import 'package:blue_squad_app/modules/shop/login/cubit/states.dart';
 import 'package:blue_squad_app/modules/social/login/cubit/states.dart';
+import 'package:blue_squad_app/shared/components/conponents.dart';
 import 'package:blue_squad_app/shared/network/end_points.dart';
 import 'package:blue_squad_app/shared/network/local/cache_helper.dart';
 import 'package:blue_squad_app/shared/network/remote/dio_helper.dart';
@@ -29,6 +30,7 @@ class SocialLoginCubit extends Cubit<SocialLoginStates> {
         .then((value) {
       print(value.user!.uid);
       print(value.user!.email);
+      user = value.user!;
       emit(SocialLoginSuccessState());
     })
         .catchError((error) {

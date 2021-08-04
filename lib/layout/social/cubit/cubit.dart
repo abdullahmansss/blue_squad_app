@@ -2,9 +2,12 @@ import 'dart:io';
 
 import 'package:blue_squad_app/layout/social/cubit/states.dart';
 import 'package:blue_squad_app/models/social/user_model.dart';
+import 'package:blue_squad_app/modules/social/settings/settings_screen.dart';
+import 'package:blue_squad_app/modules/social/users/users_screen.dart';
 import 'package:blue_squad_app/shared/components/conponents.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -88,10 +91,41 @@ class SocialCubit extends Cubit<SocialStates> {
         .doc(user!.uid)
         .update(userModel!.toMap())
         .then((value) {
-          emit(SocialUpdateUserSuccessState());
-    })
-        .catchError((error) {
+      emit(SocialUpdateUserSuccessState());
+    }).catchError((error) {
       emit(SocialUpdateUserErrorState());
+    });
+  }
+
+  int currentIndex = 0;
+
+  List<Widget> screens = [
+    UsersScreen(),
+    SettingsScreen(),
+  ];
+
+  void changeIndex(int index) {
+    currentIndex = index;
+    emit(SocialChangeBottomBarState());
+  }
+
+  List<UserModel> users = [];
+
+  void getUsers() {
+    emit(SocialGetUsersLoadingState());
+
+    FirebaseFirestore.instance.collection('users')
+        .get()
+        .then((value) {
+          value.docs.forEach((element) {
+            UserModel userModel = UserModel.fromMap(element.data());
+            if(userModel.uId != user!.uid)
+              users.add(userModel);
+          });
+      emit(SocialGetUsersSuccessState());
+    }).catchError((error) {
+      print(error.toString());
+      emit(SocialGetUsersErrorState());
     });
   }
 }
