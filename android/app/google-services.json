@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "526311115257",
+    "project_id": "blue-squad-21e41",
+    "storage_bucket": "blue-squad-21e41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526311115257:android:db3021342cac4767ba9528",
+        "android_client_info": {
+          "package_name": "blue.squad.blue_squad_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "526311115257-7tgiai7d1nndlf4kdbq2hr3gfqi02sds.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "blue.squad.blue_squad_app",
+            "certificate_hash": "be345fafacd595498dfb5b61ed5db4dbcfe1c47d"
+          }
+        },
+        {
+          "client_id": "526311115257-k79vtk243tcc7veouci41s8he3rjm3ni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDi6yvyXdov-NItYQFtxmRt8X8i1B7XLCQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "526311115257-k79vtk243tcc7veouci41s8he3rjm3ni.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
