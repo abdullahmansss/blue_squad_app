@@ -4,7 +4,9 @@ import 'package:blue_squad_app/layout/shop/shop_layout.dart';
 import 'package:blue_squad_app/layout/social/cubit/cubit.dart';
 import 'package:blue_squad_app/layout/social/social_layout.dart';
 import 'package:blue_squad_app/layout/todo/cubit/cubit.dart';
+import 'package:blue_squad_app/models/social/user_model.dart';
 import 'package:blue_squad_app/modules/shop/login/login_screen.dart';
+import 'package:blue_squad_app/modules/social/chat/chat_screen.dart';
 import 'package:blue_squad_app/modules/social/login/login_screen.dart';
 import 'package:blue_squad_app/shared/bloc_observer.dart';
 import 'package:blue_squad_app/shared/components/conponents.dart';
@@ -13,8 +15,13 @@ import 'package:blue_squad_app/shared/network/local/cache_helper.dart';
 import 'package:blue_squad_app/shared/network/remote/dio_helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  print('background message received');
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +29,7 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   await Firebase.initializeApp().then((value) {
     print('Firebase Initialized Successfully');
-  }).catchError((error){
+  }).catchError((error) {
     print('Firebase Initialized Error => ${error.toString()}');
   });
 
@@ -30,9 +37,15 @@ void main() async {
   await CacheHelper.init();
   user = FirebaseAuth.instance.currentUser;
 
-  if(user != null) print(user!.uid);
+  if (user != null) print(user!.uid);
 
   token = CacheHelper.getData(key: 'userToken');
+
+  FirebaseMessaging.instance.getToken().then((value) {
+    print('token => $value');
+  });
+
+  FirebaseMessaging.instance.subscribeToTopic('travel');
 
   runApp(
     MyApp(
@@ -62,10 +75,15 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => TodoCubit()..openOurDatabase(),
         ),
         BlocProvider(
-          create: (BuildContext context) => ShopCubit()..getHomeData()..getCategoriesData()..getFavoritesData(),
+          create: (BuildContext context) => ShopCubit()
+            ..getHomeData()
+            ..getCategoriesData()
+            ..getFavoritesData(),
         ),
         BlocProvider(
-          create: (BuildContext context) => SocialCubit()..getUserDataRealTime()..getUsers(),
+          create: (BuildContext context) => SocialCubit()
+            ..getUserDataRealTime()
+            ..getUsers(),
         ),
       ],
       child: MaterialApp(
